@@ -1,112 +1,432 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta property="og:title" content="Sankalp Karthi">
-    <meta property="og:image" src="./data/glacier.jpg">
-    <title>Sankalp Karthi</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
-  </head>
-  <body>
-    <header>
-      <a href="#" class="brand">Sankalp Karthi .</a>
-      <!-- <div class="menu-btn"></div>
-      <div class="navigation">
-        <div class="navigation-items">
-          <a href="./">Home</a>
-          <a href="./">About</a>
-          <a href="./">Explore</a>
-          <a href="./">Gallery</a>
-          <a href="./">Contact</a>
-        </div>
-      </div> -->
-    </header>
+    <title>Sankalp Karthi | Architect</title>
 
-    <section class="home">
-      <video class="video-slide active" src="data/1.mp4" autoplay muted loop></video>
-      <video class="video-slide" src="data/2.mp4" autoplay muted loop></video>
-      <video class="video-slide" src="data/4.mp4" autoplay muted loop></video>
-      <video class="video-slide" src="data/3.mp4" autoplay muted loop></video>
-      <!-- <video class="video-slide" src="data/4.mp4" autoplay muted loop></video>
-      <video class="video-slide" src="data/5.mp4" autoplay muted loop></video> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
 
-      <div class="content active">
-        <h1>Curious.<br><span>Engineer</span></h1>
-        <p>I want to automate as much as possible. Tell me Economy, Innovation and Humanity are free from each other, then I shall stop.</p>
-        <a href="https://github.com/justsankalp" target="_blank"><i class="fab fa-github"> View Projects</i></a>
-      </div>
-      <div class="content">
-        <h1>Naughty.<br><span>Explorer</span></h1>
-        <p>Who doesn't want to see the creation, our mother <b><i>gaia</i></b> to its fullest? While engineering occasionally I'm definitely packing my bags to the woods, beaches and mountains. Haven't documented anything yet, so here's my <i class="fab fa-spotify"></i> until then.</p>
-        <a href="https://open.spotify.com/user/0e1zzycqoqqu8wj8torvt49ck?si=HH6UNkE5RMO9-DBDnml8fw"  target="_blank"><i class="fab fa-spotify"></i> My Playlists</a>
-      </div>
-      <div class="content">
-        <h1>Just.<br><span>Human</span></h1>
-        <p>I have no philosophies. I keep changing, evolving to be accurate. How do I measure it? How inclusive I'm of creation I guess. Atleast that's the stage I'm in now. I'm sure it would be different soon. Don't worry, I love you guys the most, I'll take good care of humanity, that's a promise.</p>
-        <a href="https://medium.com/@sankalpkarthi3" target="_blank"><i class="fab fa-medium"></i> Read my Life</a>
-      </div>
-      <div class="content">
-        <h1>Harish-Chandra<br><span>said...</span></h1>
-        <p>In current mathematical research you look at these journals filled with theorem after theorem, and it seems like all this mathematics coming down the pipeline is enough to blow you over. But really, all this research is like a big snowstorm, and after the snowstorm you are looking at three or four feet of snow -- all very imposing and somewhat overwhelming. That is like what you see in printed journals. But with time that snow melts down and you end up with just a couple of inches of water. That water is the essence, the core, of what was actually accompalished.</p>
-      </div>
-      <div class="media-icons">
-        <a href="https://www.linkedin.com/in/sankalpkarthi/" target="_blank"><i class="fab fa-linkedin"></i></a>
-        <a href="https://www.instagram.com/sankalpkarthi/" target="_blank"><i class="fab fa-instagram"></i></a>
-        <a href="https://twitter.com/SankalpKarthi" target="_blank"><i class="fab fa-twitter"></i></a>
-      </div>
-      <div class="slider-navigation">
-        <div class="nav-btn active"></div>
-        <div class="nav-btn"></div>
-        <div class="nav-btn"></div>
-        <div class="nav-btn"></div>
-        <!-- <div class="nav-btn"></div>
-        <div class="nav-btn"></div> -->
-      </div>
-    </section>
-    <script type="text/javascript">
-      //Javascript of Navigation Menu
-      // const menuBtn = document.querySelector(".menu-btn");
-      const navigation= document.querySelector(".navigation");
+    <style>
+        /* Base Theme */
+        html {
+            background-color: #0c0a09;
+        }
 
-      // menuBtn.addEventListener("click", () => {
-      //   menuBtn.classList.toggle("active");
-      //   navigation.classList.toggle("active");
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            color: #f5ebe6;
+            min-height: 100vh;
+            width: 100%;
+            overflow-x: hidden;
+            background: transparent;
+        }
 
-      // });
-      
-      //Javascript for video slider navigation
-      const btns = document.querySelectorAll(".nav-btn");
-      const slides = document.querySelectorAll(".video-slide");
-      const contents = document.querySelectorAll(".content");
+        .bg-video {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translateX(-50%) translateY(-50%);
+            z-index: -2;
+            object-fit: cover;
+            filter: brightness(0.25) sepia(0.2);
+        }
 
-      var sliderNav = function(manual){
-        btns.forEach((btn) => {
-          btn.classList.remove("active")
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            width: 90%;
+            margin: 4rem auto;
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+        }
+
+        .glass-panel {
+            background: rgba(28, 22, 20, 0.4);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 2.5rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+        }
+
+        .header {
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .header p {
+            color: #d1c7c0;
+            line-height: 1.6;
+            font-weight: 400;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .project-card {
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            padding: 2rem;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            background-size: cover;
+            background-position: center;
+            background-blend-mode: overlay;
+        }
+
+        .bg-vidhai {
+            background-image: linear-gradient(rgba(28, 22, 20, 0.85), rgba(28, 22, 20, 0.95)), url('https://images.unsplash.com/photo-1599940824399-b87987ceb72a?q=80&w=800&auto=format&fit=crop');
+        }
+
+        .bg-gavanam {
+            background-image: linear-gradient(rgba(28, 22, 20, 0.85), rgba(28, 22, 20, 0.95)), url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop');
+        }
+
+        .bg-marabu {
+            background-image: linear-gradient(rgba(28, 22, 20, 0.85), rgba(28, 22, 20, 0.95)), url('https://images.unsplash.com/photo-1621831713833-281b37d457bc?q=80&w=800&auto=format&fit=crop');
+        }
+
+        .bg-ainuruvar {
+            background-image: linear-gradient(rgba(28, 22, 20, 0.85), rgba(28, 22, 20, 0.95)), url('https://images.unsplash.com/photo-1533900298318-6b8da08a523e?q=80&w=800&auto=format&fit=crop');
+        }
+
+        .bg-sabhai {
+            background-image: linear-gradient(rgba(28, 22, 20, 0.85), rgba(28, 22, 20, 0.95)), url('https://images.unsplash.com/photo-1472214103451-9374bd1c798e?q=80&w=800&auto=format&fit=crop');
+        }
+
+        .project-card.active:hover {
+            transform: translateY(-5px);
+            border-color: rgba(212, 115, 53, 0.6);
+            box-shadow: 0 10px 30px rgba(212, 115, 53, 0.15);
+            cursor: pointer;
+        }
+
+        .project-card.ongoing {
+            border-style: dashed;
+        }
+
+        .project-card.ongoing:hover {
+            transform: translateY(-2px);
+            cursor: default;
+        }
+
+        .project-card.silent {
+            opacity: 0.6;
+            cursor: not-allowed;
+            filter: grayscale(80%) sepia(20%);
+        }
+
+        .badge {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            padding: 0.35rem 0.6rem;
+            border-radius: 4px;
+            width: fit-content;
+            font-weight: 700;
+        }
+
+        .badge.active {
+            background: rgba(212, 115, 53, 0.2);
+            color: #f09f67;
+        }
+
+        .badge.ongoing {
+            background: rgba(212, 175, 55, 0.2);
+            color: #f2da79;
+        }
+
+        .badge.silent {
+            background: rgba(138, 125, 115, 0.2);
+            color: #b5a9a0;
+        }
+
+        .project-card h3 {
+            margin: 0;
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
+
+        .project-card p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: #d1c7c0;
+            line-height: 1.5;
+        }
+
+        .easter-egg {
+            text-align: center;
+            margin-top: 1rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .easter-egg p {
+            color: #a89b92;
+            font-size: 0.85rem;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        .puzzle-container {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .puzzle-input {
+            width: 2.8rem;
+            height: 3.5rem;
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 8px;
+            color: #fff;
+            font-size: 1.4rem;
+            font-weight: 600;
+            font-family: 'Montserrat', sans-serif;
+            text-align: center;
+            text-transform: uppercase;
+            outline: none;
+            transition: border-color 0.2s, color 0.2s, box-shadow 0.2s;
+        }
+
+        .puzzle-input:focus {
+            border-color: #d47335;
+            box-shadow: 0 0 15px rgba(212, 115, 53, 0.2);
+        }
+
+        .puzzle-input:disabled {
+            background: rgba(255, 255, 255, 0.03);
+            border-color: transparent;
+            color: #a89b92;
+        }
+
+        @keyframes shake {
+
+            0%,
+            100% {
+                transform: translateX(0);
+            }
+
+            20%,
+            60% {
+                transform: translateX(-5px);
+            }
+
+            40%,
+            80% {
+                transform: translateX(5px);
+            }
+        }
+
+        .error-shake {
+            animation: shake 0.4s ease-in-out;
+            border-color: #ef4444 !important;
+            color: #ef4444 !important;
+            box-shadow: 0 0 10px rgba(239, 68, 68, 0.2);
+        }
+
+        .success-glow {
+            border-color: #d47335 !important;
+            color: #f5ebe6 !important;
+            background: rgba(212, 115, 53, 0.2) !important;
+            box-shadow: 0 0 25px rgba(212, 115, 53, 0.5), inset 0 0 10px rgba(212, 115, 53, 0.2) !important;
+            text-shadow: 0 0 8px #f5ebe6;
+            transition: all 0.3s ease-out;
+        }
+
+        .fade-out-screen {
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        /* --- MOBILE RESPONSIVE QUERIES --- */
+        @media (max-width: 768px) {
+            .container {
+                margin: 2rem auto;
+                width: 95%;
+                gap: 1.5rem;
+            }
+
+            .header h1 {
+                font-size: 1.8rem;
+            }
+
+            .glass-panel {
+                padding: 1.5rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            /* Force single column */
+            .project-card {
+                padding: 1.5rem;
+            }
+
+            /* Shrink puzzle to fit mobile screens */
+            .puzzle-container {
+                gap: 0.25rem;
+            }
+
+            .puzzle-input {
+                width: 2.2rem;
+                height: 3rem;
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .puzzle-input {
+                width: 1.8rem;
+                height: 2.5rem;
+                font-size: 1rem;
+                border-radius: 4px;
+            }
+
+            .easter-egg p {
+                font-size: 0.75rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <video class="bg-video" autoplay loop muted playsinline>
+        <source src="./bg-video.mp4" type="video/mp4">
+    </video>
+
+    <div class="container">
+        <header class="glass-panel header">
+            <h1>Sankalp Karthi</h1>
+            <p>Cloud-Native AI Architect & Systems Engineer.<br>Architecting mathematically viable ecosystems for
+                physical and societal challenges.</p>
+        </header>
+
+        <main class="projects-grid">
+            <a href="https://vidhai.sankalp.life" class="project-card bg-vidhai active">
+                <span class="badge active">Live / Stealth</span>
+                <h3>Project Vidhai</h3>
+                <p>Multi-agent reasoning engine for regenerative agriculture and strictly optimized unit economics.</p>
+            </a>
+            <div class="project-card bg-gavanam ongoing">
+                <span class="badge ongoing">Ongoing</span>
+                <h3>Project Gavanam</h3>
+                <p>Temporal data tracking and hyper-local sentiment architecture.</p>
+            </div>
+            <div class="project-card bg-marabu silent">
+                <span class="badge silent">Ideation</span>
+                <h3>Project Marabu</h3>
+                <p>Systems infrastructure for the revival and retention of indigenous heritage.</p>
+            </div>
+            <div class="project-card bg-ainuruvar silent">
+                <span class="badge silent">Ideation</span>
+                <h3>Project Ainuruvar</h3>
+                <p>Decentralized marketplace architecture for FPOs and village networks.</p>
+            </div>
+            <div class="project-card bg-sabhai silent">
+                <span class="badge silent">Ideation</span>
+                <h3>Project Sabhai</h3>
+                <p>Self-sufficient ecosystem management connecting all overarching nodes.</p>
+            </div>
+        </main>
+
+        <footer class="glass-panel easter-egg">
+            <p>To view the overarching architecture, complete the sequence</p>
+            <div class="puzzle-container" id="puzzle">
+                <input type="text" class="puzzle-input" value="C" disabled>
+                <input type="text" class="puzzle-input active-input" maxlength="1" oninput="checkPuzzle(this)">
+                <input type="text" class="puzzle-input" value="T" disabled>
+                <input type="text" class="puzzle-input active-input" maxlength="1" oninput="checkPuzzle(this)">
+                <input type="text" class="puzzle-input" value="L" disabled>
+                <input type="text" class="puzzle-input" value="Y" disabled>
+                <input type="text" class="puzzle-input active-input" maxlength="1" oninput="checkPuzzle(this)">
+                <input type="text" class="puzzle-input" value="T" disabled>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        const activeInputs = document.querySelectorAll('.active-input');
+        const allInputs = document.querySelectorAll('.puzzle-input');
+
+        activeInputs.forEach((input, index) => {
+            input.addEventListener('keyup', (e) => {
+                activeInputs.forEach(inp => inp.classList.remove('error-shake'));
+                if (e.key !== 'Backspace' && input.value !== '') {
+                    if (index < activeInputs.length - 1) activeInputs[index + 1].focus();
+                    else checkPuzzle();
+                } else if (e.key === 'Backspace' && input.value === '') {
+                    if (index > 0) activeInputs[index - 1].focus();
+                }
+            });
         });
 
-        slides.forEach((slide) => {
-          slide.classList.remove("active")
-        });
-        
-        contents.forEach((content) => {
-          content.classList.remove("active")
-        });
+        function checkPuzzle() {
+            const filled = Array.from(activeInputs).every(inp => inp.value !== '');
+            if (!filled) return;
 
-        btns[manual].classList.add("active");
-        slides[manual].classList.add("active");
-        contents[manual].classList.add("active");
-      }
+            let attempt = "C" + (activeInputs[0].value.toUpperCase()) + "T" + (activeInputs[1].value.toUpperCase()) + "LY" + (activeInputs[2].value.toUpperCase()) + "T";
+            if (attempt === "CATALYST") triggerSuccessSequence();
+            else triggerErrorSequence();
+        }
 
-      btns.forEach((btn, i) => {
-        btn.addEventListener("click", () => {
-          sliderNav(i);
-        });
-      });
+        function triggerErrorSequence() {
+            activeInputs.forEach(input => {
+                input.classList.add('error-shake');
+                setTimeout(() => { input.value = ''; input.classList.remove('error-shake'); activeInputs[0].focus(); }, 500);
+            });
+        }
 
+        function triggerSuccessSequence() {
+            const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%&*';
+            const finalWord = ['C', 'A', 'T', 'A', 'L', 'Y', 'S', 'T'];
+
+            allInputs.forEach(input => { input.disabled = true; input.classList.add('success-glow'); });
+
+            let iterations = 0;
+            const cipherInterval = setInterval(() => {
+                allInputs.forEach(input => { input.value = characters[Math.floor(Math.random() * characters.length)]; });
+                iterations++;
+                if (iterations > 16) {
+                    clearInterval(cipherInterval);
+                    allInputs.forEach((input, i) => { input.value = finalWord[i]; });
+                    setTimeout(() => {
+                        document.body.classList.add('fade-out-screen');
+                        setTimeout(() => { window.location.href = "https://catalyst.sankalp.life"; }, 1000);
+                    }, 600);
+                }
+            }, 100);
+        }
     </script>
-    <!-- <main></main>
-    <footer></footer> -->
-  </body>
+</body>
+
 </html>
